@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./_sidenav.css">
+  <link rel="stylesheet" href="../assets/fontawesome-free-5.13.0-web/fontawesome-free-5.13.0-web/css/all.css">
+</head>
+
+<body>
+  <div style="display: flex;flex-direction: column;">
+    <div class="container">
+      <div class="sidenav" id="mySidebar"
+        style="visibility: hidden; position: absolute;z-index: 10;height:97.2vh; display: flex;flex-direction: column;justify-content: space-between;">
+
+        <div>
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+          <a href="?link=About"> <img src="../assets/img/about.svg" class="img-size" />About</a>
+          <a href="?link=Services"> <img src="../assets/img/service.svg" class="img-size" />Services</a>
+          <a href="?link=Clients"><img src="../assets/img/client.svg" class="img-size" />Clients</a>
+          <button class="dropdown-btn">
+            <img src="../assets/img/contact.svg" class="img-size" />DropDown <i class="fa fa-caret-right" id="arrow1"
+              style="margin-left: 68px;"> </i>
+          </button>
+          <div class="dropdown-container">
+            <a href="?link=Link1">Link 1</a>
+            <a href="?link=Link2">Link 2</a>
+            <button class="inner-btn dropdown-btn1">
+              <img src="../assets/img/contact.svg" class="img-size" />Inner Dropdown
+              <i class="fa fa-caret-right" id="arrow2" style="margin-left: 13px;"> </i>
+            </button>
+            <div class="dropdown-container">
+              <a href="?link=InnerLink1">Inner Link 1</a>
+              <a href="?link=InnerLink2">Inner Link 2</a>
+              <a href="?link=InnerLink3">Inner Link 3</a>
+            </div>
+          </div>
+          <a href="?link=Contact"><img src="../assets/img/contact.svg" class="img-size" />Contact</a>
+        </div>
+        <div id="theme-wrapper">
+          <div id="theme">
+            <button id="main1"></button>
+            <button id="main2"></button>
+            <button id="main3"></button>
+            <button
+              style="color:#818181;font-weight: bold; outline: none;border: none;margin-bottom:60px;font-size: 16px;background-color:transparent;cursor: pointer;"
+              id="theme-customizer" onclick="myFunction1()">Theme Customizer</button>
+          </div>
+        </div>
+
+      </div>
+
+
+      <div class="sidenav" id="first">
+        <div style="display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%">
+          <div>
+            <a href="?link=About"> <img src="../assets/img/about.svg" class="img-size" />About</a>
+            <a href="?link=Services"> <img src="../assets/img/service.svg" class="img-size" />Services</a>
+            <a href="?link=Clients"><img src="../assets/img/client.svg" class="img-size" />Clients</a>
+            <button class="dropdown-btn" id="drop-btn">
+              <img src="../assets/img/contact.svg" class="img-size" /> DropDown <i class="fa fa-caret-right" id="arrow3"
+                style="margin-left:25px;"> </i>
+            </button>
+            <div class="dropdown-container">
+              <a href="?link=Link1">Link 1</a>
+              <a href="?link=Link2">Link 2</a>
+              <button class="inner-btn dropdown-btn1" id="drop-btn">
+                <img src="../assets/img/contact.svg" class="img-size" />
+                Inner Dropdown
+                <i class="fa fa-caret-right" id="arrow4" style="margin-left: 0px;"> </i>
+              </button>
+              <div class="dropdown-container">
+                <a href="?link=InnerLink1">Inner Link 1</a>
+                <a href="?link=InnerLink2">Inner Link 2</a>
+                <a href="?link=InnerLink3">Inner Link 3</a>
+              </div>
+            </div>
+            <a href="?link=Contact"><img src="../assets/img/contact.svg" class="img-size" />Contact</a>
+          </div>
+          <div id="theme-wrapper1">
+            <div id="theme1">
+              <button id="main4"></button>
+              <button id="main5"></button>
+              <button id="main6"></button>
+              <button
+                style="font-weight: bold; color:#818181;outline: none;border: none;margin-bottom:25px;font-size: 16px;background-color: transparent;cursor: pointer;"
+                id="theme-customizer" onclick="myFunction2()">Theme Customizer</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex;flex-direction: column;width: 100%;background-color:#e1e7ed;">
+        <header class="header">
+          <button id="main" class="openbtn" onclick="openNav()">☰</button>
+          <p class="title"> Demo Project</p>
+          <a href="../index.html">
+            <img src="../assets/img/exit.png" class="log-out">
+          </a>
+        </header>
+        <div class="main">
+          <h2 id="maintext">Sidebar Dropdown</h2>
+        </div>
+      </div>
+
+    </div>
+    <footer class="footer">
+      <p class="rights">
+        &copy; 2020 All Rights Reserved.
+      </p>
+    </footer>
+  </div>
+  <script>
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent = this.nextElementSibling;
+        console.log("dd", dropdownContent)
+        if (dropdownContent.style.display === "block") {
+          dropdownContent.style.display = "none";
+          document.getElementById("arrow1").style.transform = "rotate(0deg)"
+          document.getElementById("arrow1").style.transition = "all 0.5s"
+          document.getElementById("arrow3").style.transform = "rotate(0deg)"
+          document.getElementById("arrow3").style.transition = "all 0.5s"
+        } else {
+          dropdownContent.style.display = "block";
+          document.getElementById("arrow1").style.transform = "rotate(90deg)"
+          document.getElementById("arrow1").style.transition = "all 0.5s"
+          document.getElementById("arrow3").style.transform = "rotate(90deg)"
+          document.getElementById("arrow3").style.transition = "all 0.5s"
+        }
+      });
+    }
+    var dropdown1 = document.getElementsByClassName("dropdown-btn1");
+    var i;
+    for (i = 0; i < dropdown1.length; i++) {
+      dropdown1[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var dropdownContent1 = this.nextElementSibling;
+        if (dropdownContent1.style.display === "block") {
+          dropdownContent1.style.display = "none";
+          document.getElementById("arrow2").style.transform = "rotate(0deg)"
+          document.getElementById("arrow2").style.transition = "all 0.5s"
+          document.getElementById("arrow4").style.transform = "rotate(0deg)"
+          document.getElementById("arrow4").style.transition = "all 0.5s"
+        } else {
+          dropdownContent1.style.display = "block";
+          document.getElementById("arrow2").style.transform = "rotate(90deg)"
+          document.getElementById("arrow2").style.transition = "all 0.5s"
+          document.getElementById("arrow4").style.transform = "rotate(90deg)"
+          document.getElementById("arrow4").style.transition = "all 0.5s"
+        }
+      });
+    }
+    function openNav() {
+      document.getElementById("mySidebar").style.width = "250px";
+      document.getElementById("mySidebar").style.visibility = "visible";
+    }
+    document.getElementById("main1").onclick = function () {
+      document.getElementById("mySidebar").style.backgroundColor = "black"
+
+    }
+    document.getElementById("main2").onclick = function () {
+      document.getElementById("mySidebar").style.backgroundColor = "white"
+    }
+    document.getElementById("main3").onclick = function () {
+      document.getElementById("mySidebar").style.backgroundColor = "#fbbe47";
+    }
+    document.getElementById("main4").onclick = function () {
+      document.getElementsByClassName("sidenav").first.style.backgroundColor = "black"
+    }
+    document.getElementById("main5").onclick = function () {
+      document.getElementsByClassName("sidenav").first.style.backgroundColor = "white"
+    }
+    document.getElementById("main6").onclick = function () {
+      document.getElementsByClassName("sidenav").first.style.backgroundColor = "#fbbe47";
+    }
+    function closeNav() {
+      document.getElementById("mySidebar").style.width = "0";
+    }
+
+    function myFunction1() {
+      var y = document.getElementById("theme");
+      if (y.style.marginLeft === "80px") {
+        y.style.marginLeft = "0px";
+      } else {
+        document.getElementById("theme").style.transition = "1s";
+        document.getElementById("theme").style.marginLeft = "80px"
+      }
+    }
+    function myFunction2() {
+      var y = document.getElementById("theme1");
+      if (y.style.marginLeft === "80px") {
+        y.style.marginLeft = "0px";
+      } else {
+        document.getElementById("theme1").style.transition = "1s";
+        document.getElementById("theme1").style.marginLeft = "80px"
+      }
+    }
+    function myFunction(x) {
+      if (x.matches) {
+        document.getElementById("main").style.visibility = "visible";
+        document.getElementById("first").style.visibility = "hidden";
+      } else {
+        document.getElementById("main").style.visibility = "hidden";
+        document.getElementById("first").style.visibility = "visible";
+      }
+    }
+
+    var x = window.matchMedia("(max-width: 500px)")
+    myFunction(x)
+    x.addListener(myFunction) 
+  </script>
+  <script src="sidenav.js"></script>
+
+</body>
+
+</html>
